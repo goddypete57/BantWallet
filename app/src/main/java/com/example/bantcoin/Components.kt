@@ -69,7 +69,7 @@ fun Fields(
 
 
 },
-        modifier = modifier.clip(RoundedCornerShape(15.dp))
+        modifier = modifier.fillMaxWidth(0.96f).padding(15.dp).clip(RoundedCornerShape(15.dp))
     )
 }
 

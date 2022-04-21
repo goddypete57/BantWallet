@@ -37,7 +37,6 @@ fun ImportPhrase() {
             modifier = Modifier
                 .fillMaxSize()
                 .padding(15.dp)
-                .padding(15.dp)
         ) {
 
             Row(
@@ -169,37 +168,37 @@ fun ImportPhrase() {
                 Switch(
                     checked = checkedState.value,
                     onCheckedChange = { checkedState.value = it },
-                    colors =SwitchDefaults.colors(
+                    colors = SwitchDefaults.colors(
                         checkedTrackColor = Purple200,
                         checkedThumbColor = Color.White,
                     )
                 )
 
-
+            }
                 Row(modifier = Modifier.fillMaxWidth()){
                     Text(
                         text = "By proceeding, you agree to these",
                         fontWeight = FontWeight.Normal,
-                        fontSize = 20,
+                        fontSize = 14,
                         textAlign = TextAlign.Start,
                         color = TextColor
                     )
                     Text(
                         text = "Term and Conditions",
                         fontWeight = FontWeight.Normal,
-                        fontSize = 20,
-                        textAlign = TextAlign.Start,
+                        fontSize = 14,
+                        textAlign = TextAlign.End,
                         color = Purple
                     )
                 }
-                Spacer(modifier = Modifier.height(20.dp))
+                Spacer(modifier = Modifier.height(70.dp))
                 GradientButton(text = "Import", gradient = horizontalGradientBrush)
             }
 
 
         }
     }
-}
+
 
 @Preview
 @Composable
