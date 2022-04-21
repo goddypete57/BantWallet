@@ -25,6 +25,8 @@ import androidx.compose.ui.graphics.Color.Companion.White
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.Font
+import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
@@ -151,34 +153,52 @@ fun ClickText(
     )
 }
 
-val horizontalGradientBrush = Brush.horizontalGradient(
-    colors = listOf(
-        Color(0xFFD703FF),
-        Color(0xFF0027FF),
-    )
-)
-
+var colorGrade = Brush.horizontalGradient(colors = listOf(
+    Color(215, 3, 255),
+    Color(130, 0, 255),
+    Color(21, 33, 255),
+    Color(0, 39, 255),
+))
 
 @Composable
 fun GradientText(
     text: String,
     modifier: Modifier = Modifier,
     fontWeight: FontWeight,
-    fontSize: Int
+    fontSize: Int,
+    textAlign: TextAlign,
 ) {
-    Text(text = text,
-        fontSize = fontSize.sp,
-        fontWeight = fontWeight,
-        modifier = modifier
-            .graphicsLayer(alpha = 0.999f)
-            .drawWithCache {
-                val brush = Brush.horizontalGradient(listOf(Pink, Purple))
-                onDrawWithContent {
-                    drawContent()
-                    drawRect(brush, blendMode = BlendMode.SrcAtop)
-                }
-            }
+    var colorGrade = Brush.horizontalGradient(colors = listOf(
+        Color(215, 3, 255),
+        Color(130, 0, 255),
+        Color(21, 33, 255),
+        Color(0, 39, 255),
+    ))
+
+    val sanSansFamily = FontFamily(
+        Font(R.font.source_sans_regular, FontWeight.Normal),
+        Font(R.font.source_sans, FontWeight.SemiBold)
     )
+
+    Text(text = text, fontSize = fontSize.sp, fontFamily = sanSansFamily, fontWeight = FontWeight.SemiBold, modifier = Modifier
+        .padding(top = 24.dp)
+        .graphicsLayer(alpha = .99f)
+        .drawWithCache {
+            onDrawWithContent {
+                drawContent()
+                drawRect(colorGrade, blendMode = BlendMode.SrcAtop)
+            }
+        }
+    )
+}
+
+@Preview
+@Composable
+fun gradient() {
+    Column(modifier = Modifier.background(White)) {
+        GradientText(text = "vjgjhgjhgg", fontWeight = FontWeight.Normal, fontSize = 20, textAlign = TextAlign.Center )
+
+    }
 }
 
 
@@ -240,7 +260,7 @@ fun OutlineButton(
     Button(
         modifier = modifier.border(
             2.dp,
-            horizontalGradientBrush,
+            colorGrade,
             androidx.compose.foundation.shape.CircleShape
         ),
         colors = ButtonDefaults.buttonColors(backgroundColor = Color.Transparent),

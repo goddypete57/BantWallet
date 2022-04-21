@@ -31,20 +31,19 @@ fun WalletComposable() {
             Spacer(modifier = Modifier.height(110.dp))
             Image(painter = painterResource(id = R.drawable.splash_image), contentDescription = "")
             Spacer(modifier = Modifier.height(90.dp))
-            Text(
+            GradientText(
                 text = "Wallet Setup",
                 fontWeight = FontWeight.Bold,
                 fontSize = 25,
                 modifier = Modifier.fillMaxWidth(),
                 textAlign = TextAlign.Center,
-                color = Purple
             )
             Spacer(modifier = Modifier.height(50.dp))
             OutlineButton(text = "Importing using see phrase") {
 
             }
             Spacer(modifier = Modifier.height(20.dp))
-            GradientButton(text = "Get Started", gradient = horizontalGradientBrush) {
+            GradientButton(text = "Get Started", gradient = colorGrade) {
 
             }
         }

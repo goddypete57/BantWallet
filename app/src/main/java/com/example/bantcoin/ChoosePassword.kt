@@ -23,8 +23,8 @@ import com.example.bantcoin.ui.theme.TextColor
 
 @Composable
 fun ChoosePassword() {
-    val currentStep = remember { mutableStateOf(0) }
     var password by rememberSaveable { mutableStateOf("") }
+    val currentStep = remember { mutableStateOf(3) }
     Scaffold(
         topBar = {
             TopAppBar(Modifier.height(80.dp), backgroundColor = Color.White) {
@@ -59,7 +59,8 @@ fun ChoosePassword() {
                     .padding(30.dp)
                     .wrapContentSize(),
                 fontSize = 20,
-                fontWeight = FontWeight.Bold
+                fontWeight = FontWeight.Bold,
+                textAlign = TextAlign.Center
             )
 
             Row(
