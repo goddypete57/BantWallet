@@ -20,20 +20,16 @@ import androidx.compose.ui.graphics.BlendMode
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Color.Companion.Gray
-import androidx.compose.ui.graphics.Color.Companion.Green
 import androidx.compose.ui.graphics.Color.Companion.White
 import androidx.compose.ui.graphics.graphicsLayer
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
-import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.bantcoin.ui.theme.Pink
 import com.example.bantcoin.ui.theme.Purple
 import com.example.bantcoin.ui.theme.Purple200
 
@@ -217,7 +213,8 @@ fun Text(
         modifier = modifier,
         fontWeight = fontWeight,
         fontSize = fontSize.sp,
-        textAlign = textAlign
+        textAlign = textAlign,
+        color = color
     )
 }
 
