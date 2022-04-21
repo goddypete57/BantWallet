@@ -66,10 +66,8 @@ fun Fields(
             ) {
                 Icon(imageVector = image, description)
             }
-
-
 },
-        modifier = modifier.fillMaxWidth(0.96f).padding(15.dp).clip(RoundedCornerShape(15.dp))
+        modifier = modifier.fillMaxWidth(0.96f).padding(15.dp)
     )
 }
 
@@ -111,7 +109,7 @@ fun FieldsWithIcon(
             placeholderColor = Color.Gray,
             backgroundColor = Color.White,
         ),
-        modifier = modifier.clip(RoundedCornerShape(20.dp)),
+        modifier = modifier,
 
         )
 }
