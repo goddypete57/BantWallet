@@ -15,9 +15,11 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.bantcoin.ui.theme.Purple500
+import com.example.bantcoin.ui.theme.TextColor
 
 @Composable
 fun ChoosePassword() {
@@ -60,15 +62,68 @@ fun ChoosePassword() {
                 fontWeight = FontWeight.Bold
             )
 
-            FieldsWithIcon(
+            Row(
+                Modifier
+                    .fillMaxWidth()
+                    .padding(horizontal = 20.dp),
+                verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.Start
+            ) {
+                Text(
+                    text = "New Password",
+                    fontWeight = FontWeight.Normal,
+                    fontSize = 18,
+                    textAlign = TextAlign.Start,
+                    color = TextColor,
+                    modifier = Modifier
+                        .wrapContentSize()
+                )
+                Image(
+                    painter = painterResource(id = R.drawable.star),
+                    contentDescription = ""
+                )
+            }
+            Fields(
                 name = password,
                 onNameChange = { password = it },
                 placeholders = "New Password",
                 modifier = Modifier
-                    .padding(horizontal = 20.dp)
                     .fillMaxWidth(),
-                icon = R.drawable.ic_back
             )
+
+            Row(
+                Modifier
+                    .fillMaxWidth()
+                    .padding(horizontal = 20.dp),
+                verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.Start
+            ) {
+                Text(
+                    text = "Confirm Password",
+                    fontWeight = FontWeight.Normal,
+                    fontSize = 18,
+                    textAlign = TextAlign.Start,
+                    color = TextColor,
+                    modifier = Modifier
+                        .wrapContentSize()
+                )
+                Image(
+                    painter = painterResource(id = R.drawable.star),
+                    contentDescription = ""
+                )
+            }
+
+            Fields(
+                name = password,
+                onNameChange = { password = it },
+                placeholders = "New Password",
+                modifier = Modifier
+                    .fillMaxWidth(),
+            )
+
+            Divider(color = TextColor, thickness = 2.dp)
+
+
         }
     }
 
