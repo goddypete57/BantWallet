@@ -122,7 +122,10 @@ fun ChoosePassword() {
                     .fillMaxWidth(),
             )
 
-            Divider(color = TextColor, thickness = 2.dp)
+            Divider(
+                Modifier.padding(20.dp),
+                color = TextColor, thickness = 2.dp
+            )
 
 
         }
