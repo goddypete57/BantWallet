@@ -2,11 +2,16 @@ package com.example.bantcoin
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Visibility
+import androidx.compose.material.icons.filled.VisibilityOff
 import androidx.compose.runtime.*
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -14,6 +19,8 @@ import androidx.compose.ui.draw.drawWithCache
 import androidx.compose.ui.graphics.BlendMode
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.Color.Companion.Green
+import androidx.compose.ui.graphics.Color.Companion.White
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
@@ -35,21 +42,37 @@ fun Fields(
     placeholders: String,
     modifier: Modifier,
 ) {
-    TextField(
+
+    var password by rememberSaveable { mutableStateOf("") }
+    var passwordVisible by rememberSaveable { mutableStateOf(false) }
+    OutlinedTextField(
         value = name,
         onValueChange = onNameChange,
         placeholder = { Text(text = placeholders) },
-        colors = TextFieldDefaults.textFieldColors(
+        colors = TextFieldDefaults.outlinedTextFieldColors(
             textColor = Color.Gray,
             disabledTextColor = Color.Transparent,
-            focusedIndicatorColor = Color.Transparent,
-            unfocusedIndicatorColor = Color.Transparent,
-            disabledIndicatorColor = Color.Transparent,
-            placeholderColor = Color.Gray
+            placeholderColor = Color.Gray,
+            backgroundColor = White
         ),
+        trailingIcon = {
+            val image = if (passwordVisible)
+                Icons.Filled.Visibility
+            else Icons.Filled.VisibilityOff
+            val description = if (passwordVisible) "Hide password" else "Show password"
+            IconButton(
+                onClick = { passwordVisible = !passwordVisible },
+                modifier = Modifier.padding()
+            ) {
+                Icon(imageVector = image, description)
+            }
+
+
+},
         modifier = modifier.clip(RoundedCornerShape(15.dp))
     )
 }
+
 
 @Composable
 fun FieldsWithIcon(
@@ -57,33 +80,27 @@ fun FieldsWithIcon(
     onNameChange: (String) -> Unit,
     placeholders: String,
     modifier: Modifier,
-    icon: Int,
-    icon2: Int = 0
 ) {
-    TextField(
+
+    var password by rememberSaveable { mutableStateOf("") }
+    var passwordVisible by rememberSaveable { mutableStateOf(false) }
+    OutlinedTextField(
         value = name,
         onValueChange = onNameChange,
         trailingIcon = {
-            Row(Modifier.wrapContentSize()) {
-                IconButton(onClick = { /*TODO*/ }) {
-                    Icon(
-                        painter = painterResource(id = icon),
-                        contentDescription = "",
-                        tint = Color.White
-                    )
-                }
-                if (icon2 != 0) {
-                    IconButton(onClick = { /*TODO*/ }, modifier = Modifier.wrapContentSize()) {
-                        Icon(
-                            painter = painterResource(id = icon2),
-                            contentDescription = "",
-                            tint = Color.White
-                        )
-                    }
-                }
+            val image = if (passwordVisible)
+                Icons.Filled.Visibility
+            else Icons.Filled.VisibilityOff
+            val description = if (passwordVisible) "Hide password" else "Show password"
+            IconButton(
+                onClick = { passwordVisible = !passwordVisible },
+                modifier = Modifier.padding(bottom = 60.dp)
+            ) {
+                Icon(imageVector = image, description)
             }
 
         },
+
         placeholder = { Text(text = placeholders) },
         colors = TextFieldDefaults.textFieldColors(
             textColor = Color.Gray,
@@ -91,10 +108,12 @@ fun FieldsWithIcon(
             focusedIndicatorColor = Color.Transparent,
             unfocusedIndicatorColor = Color.Transparent,
             disabledIndicatorColor = Color.Transparent,
-            placeholderColor = Color.Gray
+            placeholderColor = Color.Gray,
+            backgroundColor = Color.White,
         ),
-        modifier = modifier.clip(RoundedCornerShape(15.dp))
-    )
+        modifier = modifier.clip(RoundedCornerShape(20.dp)),
+
+        )
 }
 
 
@@ -143,10 +162,15 @@ val horizontalGradientBrush = Brush.horizontalGradient(
 
 
 @Composable
-fun GradientText(text:String,modifier: Modifier=Modifier,fontWeight: FontWeight,fontSize: Int){
+fun GradientText(
+    text: String,
+    modifier: Modifier = Modifier,
+    fontWeight: FontWeight,
+    fontSize: Int
+) {
     Text(text = text,
-        fontSize=fontSize.sp,
-        fontWeight=fontWeight,
+        fontSize = fontSize.sp,
+        fontWeight = fontWeight,
         modifier = modifier
             .graphicsLayer(alpha = 0.999f)
             .drawWithCache {
@@ -166,29 +190,24 @@ fun Text(
     modifier: Modifier = Modifier,
     fontWeight: FontWeight,
     fontSize: Int,
-    fontStyle: FontStyle
-){
-   Text(
-       text = text,
-       modifier = modifier,
-       fontWeight = fontWeight,
-       fontSize = fontSize.sp,
-   )
-}
-@Preview
-@Composable
-fun button() {
-    Column {
-        GradientButton(text = "follow", gradient = horizontalGradientBrush)
-        GradientText(text = "show",modifier = Modifier.fillMaxWidth(),fontSize = 20,fontWeight = FontWeight.Bold)
-    }
+    textAlign: TextAlign,
+    color: Color
 
+) {
+    Text(
+        text = text,
+        modifier = modifier,
+        fontWeight = fontWeight,
+        fontSize = fontSize.sp,
+        textAlign = textAlign
+    )
 }
+
 
 @Composable
 fun GradientButton(
     text: String,
-    gradient : Brush,
+    gradient: Brush,
     modifier: Modifier = Modifier,
     onClick: () -> Unit = { },
 ) {
@@ -207,7 +226,7 @@ fun GradientButton(
                 .then(modifier.fillMaxWidth()),
             contentAlignment = Alignment.Center,
         ) {
-            Text(text = text,color = Color.White,fontSize = 20.sp)
+            Text(text = text, color = Color.White, fontSize = 20.sp)
         }
 
     }
@@ -216,13 +235,16 @@ fun GradientButton(
 @Composable
 fun OutlineButton(
     text: String,
-    gradient : Brush,
     modifier: Modifier = Modifier,
     onClick: () -> Unit = { },
 ) {
 
     Button(
-        modifier = modifier,
+        modifier = modifier.border(
+            2.dp,
+            horizontalGradientBrush,
+            androidx.compose.foundation.shape.CircleShape
+        ),
         colors = ButtonDefaults.buttonColors(backgroundColor = Color.Transparent),
         contentPadding = PaddingValues(),
         onClick = { onClick() },
@@ -231,18 +253,14 @@ fun OutlineButton(
             modifier = Modifier
                 .height(60.dp)
                 .clip(RoundedCornerShape(30.dp))
-                .background(gradient)
                 .then(modifier.fillMaxWidth()),
             contentAlignment = Alignment.Center,
         ) {
-            Text(text = text,color = Color.White,fontSize = 20.sp)
+            Text(text = text, color = Purple, fontSize = 20.sp)
         }
 
     }
 }
-
-
-
 
 
 //
@@ -307,6 +325,7 @@ fun OutlineButton(
         )
     }
 }
+
 @Composable
 fun AlertDialog() {
     val showDialog = remember { mutableStateOf(false) }
