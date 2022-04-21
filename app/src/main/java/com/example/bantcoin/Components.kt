@@ -19,6 +19,7 @@ import androidx.compose.ui.draw.drawWithCache
 import androidx.compose.ui.graphics.BlendMode
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.Color.Companion.Gray
 import androidx.compose.ui.graphics.Color.Companion.Green
 import androidx.compose.ui.graphics.Color.Companion.White
 import androidx.compose.ui.graphics.graphicsLayer
@@ -100,14 +101,13 @@ fun FieldsWithIcon(
         },
 
         placeholder = { Text(text = placeholders) },
-        colors = TextFieldDefaults.textFieldColors(
+        colors = TextFieldDefaults.outlinedTextFieldColors(
             textColor = Color.Gray,
             disabledTextColor = Color.Transparent,
-            focusedIndicatorColor = Color.Transparent,
-            unfocusedIndicatorColor = Color.Transparent,
-            disabledIndicatorColor = Color.Transparent,
             placeholderColor = Color.Gray,
             backgroundColor = Color.White,
+            focusedBorderColor = Purple,
+            unfocusedBorderColor = Gray
         ),
         modifier = modifier,
 
