@@ -192,7 +192,7 @@ fun ImportPhrase() {
                     )
                 }
                 Spacer(modifier = Modifier.height(70.dp))
-                GradientButton(text = "Import", gradient = horizontalGradientBrush)
+                GradientButton(text = "Import", gradient = colorGrade)
             }
 
 

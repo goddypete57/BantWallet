@@ -16,13 +16,14 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.bantcoin.ui.theme.Purple500
 
 @Composable
 fun ChoosePassword() {
-    val currentStep = remember { mutableStateOf(0) }
+    val currentStep = remember { mutableStateOf(3) }
     Scaffold(
         topBar = {
             TopAppBar(Modifier.height(80.dp), backgroundColor = Color.White) {
@@ -57,7 +58,8 @@ fun ChoosePassword() {
                     .padding(30.dp)
                     .wrapContentSize(),
                 fontSize = 20,
-                fontWeight = FontWeight.Bold
+                fontWeight = FontWeight.Bold,
+                textAlign = TextAlign.Center
             )
 
 
