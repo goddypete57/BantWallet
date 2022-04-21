@@ -51,9 +51,9 @@ fun Fields(
         onValueChange = onNameChange,
         placeholder = { Text(text = placeholders) },
         colors = TextFieldDefaults.outlinedTextFieldColors(
-            textColor = Color.Gray,
+            textColor = Gray,
             disabledTextColor = Color.Transparent,
-            placeholderColor = Color.Gray,
+            placeholderColor = Gray,
             backgroundColor = White
         ),
         trailingIcon = {
@@ -68,7 +68,7 @@ fun Fields(
                 Icon(imageVector = image, description)
             }
 },
-        modifier = modifier.fillMaxWidth(0.96f).padding(15.dp)
+        modifier = modifier.fillMaxWidth()
     )
 }
 
@@ -102,14 +102,14 @@ fun FieldsWithIcon(
 
         placeholder = { Text(text = placeholders) },
         colors = TextFieldDefaults.outlinedTextFieldColors(
-            textColor = Color.Gray,
+            textColor = Gray,
             disabledTextColor = Color.Transparent,
-            placeholderColor = Color.Gray,
-            backgroundColor = Color.White,
+            placeholderColor = Gray,
+            backgroundColor = White,
             focusedBorderColor = Purple,
             unfocusedBorderColor = Gray
         ),
-        modifier = modifier,
+        modifier = modifier.fillMaxWidth(),
 
         )
 }
@@ -119,7 +119,7 @@ fun FieldsWithIcon(
 fun TextCompose(
     text: String,
     modifier: Modifier,
-    color: Color = Color.White,
+    color: Color = White,
     fontWeight: FontWeight,
     fontSize: Int, textAlign: TextAlign
 ) {
@@ -224,7 +224,7 @@ fun GradientButton(
                 .then(modifier.fillMaxWidth()),
             contentAlignment = Alignment.Center,
         ) {
-            Text(text = text, color = Color.White, fontSize = 20.sp)
+            Text(text = text, color = White, fontSize = 20.sp)
         }
 
     }
@@ -331,7 +331,7 @@ fun AlertDialog() {
         AlertDialog(
             onDismissRequest = { showDialog.value },
             text = {
-                Column(modifier = Modifier.background(color = Color.White)) {
+                Column(modifier = Modifier.background(color = White)) {
                     TextCompose(
                         text = "A message have been sent to your\nmail please go and verify your\nemail",
                         modifier = Modifier.fillMaxWidth(),
@@ -346,7 +346,7 @@ fun AlertDialog() {
                             .clickable { showDialog.value }
                             .align(Alignment.CenterHorizontally),
                         color = Purple200,
-                        textColor = Color.White)
+                        textColor = White)
                 }
             },
             buttons = {}
