@@ -89,6 +89,7 @@ fun ChoosePassword() {
                 onNameChange = { password = it },
                 placeholders = "New Password",
                 modifier = Modifier
+                    .padding(20.dp)
                     .fillMaxWidth(),
             )
 
@@ -119,10 +120,12 @@ fun ChoosePassword() {
                 onNameChange = { password = it },
                 placeholders = "New Password",
                 modifier = Modifier
+                    .padding(20.dp)
                     .fillMaxWidth(),
             )
 
             Divider(
+                Modifier.padding(20.dp),
                 color = TextColor, thickness = 2.dp
             )
 
