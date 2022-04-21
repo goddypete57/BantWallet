@@ -77,7 +77,12 @@ fun HomeScreen() {
                 Row(modifier = Modifier
                     .fillMaxWidth()
                     .padding(top = 24.dp), horizontalArrangement = Arrangement.Center) {
-                    androidx.compose.material.Text(text = "9.3729 ETH", fontSize = 55.sp, fontFamily = sanSansFamily, fontWeight = FontWeight.SemiBold, modifier = Modifier
+                    androidx.compose.material.Text(
+                        text = "9.3729 ETH",
+                        fontSize = 55.sp,
+                        fontFamily = sanSansFamily,
+                        fontWeight = FontWeight.SemiBold,
+                        modifier = Modifier
                         .graphicsLayer(alpha = .99f)
                         .drawWithCache {
                             onDrawWithContent {

@@ -9,8 +9,11 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.drawWithCache
+import androidx.compose.ui.graphics.BlendMode
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontStyle
@@ -62,7 +65,7 @@ fun TabScreenTwo() {
     }
 }
 
-var colorGrade = Brush.horizontalGradient(colors = listOf(
+var colorGrade2 = Brush.horizontalGradient(colors = listOf(
     Color(215, 3, 255),
     Color(130, 0, 255),
     Color(21, 33, 255),
@@ -101,7 +104,13 @@ fun Tabs(pagerState: PagerState) {
             TabRowDefaults.Indicator(
                 Modifier
                     .pagerTabIndicatorOffset(pagerState, tabPositions)
-                    .background(colorGrade),
+                    .graphicsLayer(alpha = .99f)
+                    .drawWithCache {
+                        onDrawWithContent {
+                            drawContent()
+                            drawRect(colorGrade2, blendMode = BlendMode.SrcAtop)
+                        }
+                    },
                 height = 3.dp,
             )
         }
