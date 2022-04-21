@@ -8,9 +8,8 @@ import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.Scaffold
 import androidx.compose.material.TabRowDefaults.Divider
 import androidx.compose.material.TopAppBar
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
+import androidx.compose.runtime.*
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -23,6 +22,7 @@ import com.example.bantcoin.ui.theme.Purple500
 @Composable
 fun ChoosePassword() {
     val currentStep = remember { mutableStateOf(0) }
+    var password by rememberSaveable { mutableStateOf("") }
     Scaffold(
         topBar = {
             TopAppBar(Modifier.height(80.dp), backgroundColor = Color.White) {
@@ -60,7 +60,15 @@ fun ChoosePassword() {
                 fontWeight = FontWeight.Bold
             )
 
-
+            FieldsWithIcon(
+                name = password,
+                onNameChange = { password = it },
+                placeholders = "New Password",
+                modifier = Modifier
+                    .padding(horizontal = 20.dp)
+                    .fillMaxWidth(),
+                icon = R.drawable.ic_back
+            )
         }
     }
 
