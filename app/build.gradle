@@ -77,8 +77,8 @@ dependencies {
     implementation "androidx.compose.material:material-icons-extended:1.1.1"
 
     //Compose pager indicator dependency
-    implementation "com.google.accompanist:accompanist-pager:0.12.0"
-    implementation "com.google.accompanist:accompanist-pager-indicators:0.12.0"
+    implementation "com.google.accompanist:accompanist-pager:0.20.0"
+    implementation "com.google.accompanist:accompanist-pager-indicators:0.20.0"
     implementation "com.google.accompanist:accompanist-insets:0.17.0"
 
     // Compose lottie dependency
