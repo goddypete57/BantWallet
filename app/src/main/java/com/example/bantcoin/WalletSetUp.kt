@@ -15,7 +15,7 @@ import androidx.compose.ui.unit.dp
 import com.example.bantcoin.ui.theme.Purple
 
 @Composable
-fun GetStarted() {
+fun WalletComposable() {
     Box(
         modifier = Modifier
             .fillMaxSize()
@@ -28,25 +28,31 @@ fun GetStarted() {
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
 
-            Spacer(modifier = Modifier.height(150.dp))
+            Spacer(modifier = Modifier.height(110.dp))
             Image(painter = painterResource(id = R.drawable.splash_image), contentDescription = "")
             Spacer(modifier = Modifier.height(90.dp))
             Text(
-                text = "The best crypto wallet app\nof this century",
-                fontWeight = FontWeight.Normal,
-                fontSize = 18,
+                text = "Wallet Setup",
+                fontWeight = FontWeight.Bold,
+                fontSize = 25,
                 modifier = Modifier.fillMaxWidth(),
                 textAlign = TextAlign.Center,
                 color = Purple
             )
-            Spacer(modifier = Modifier.height(100.dp))
-            GradientButton(text = "Get Started", gradient = horizontalGradientBrush)
+            Spacer(modifier = Modifier.height(50.dp))
+            OutlineButton(text = "Importing using see phrase") {
+
+            }
+            Spacer(modifier = Modifier.height(20.dp))
+            GradientButton(text = "Get Started", gradient = horizontalGradientBrush) {
+
+            }
         }
     }
 }
 
 @Preview
 @Composable
-fun getstarted() {
-    GetStarted()
+fun wallet() {
+    WalletComposable()
 }

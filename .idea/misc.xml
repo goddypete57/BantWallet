@@ -13,10 +13,23 @@
         <entry key="../../../../layout/compose-model-1650484228437.xml" value="0.25" />
         <entry key="../../../../layout/compose-model-1650484531304.xml" value="1.0" />
         <entry key="../../../../layout/compose-model-1650484607398.xml" value="2.0" />
-        <entry key="../../../../layout/compose-model-1650485350259.xml" value="0.67" />
+        <entry key="../../../../layout/compose-model-1650485350259.xml" value="0.22" />
         <entry key="../../../../layout/compose-model-1650485538536.xml" value="0.33" />
         <entry key="../../../../layout/compose-model-1650486660474.xml" value="0.9" />
         <entry key="../../../../layout/compose-model-1650487685811.xml" value="1.0" />
+        <entry key="../../../../layout/compose-model-1650491911428.xml" value="0.5" />
+        <entry key="../../../../layout/compose-model-1650492448426.xml" value="0.33" />
+        <entry key="../../../../layout/compose-model-1650495599201.xml" value="0.31165540540540543" />
+        <entry key="../../../../layout/compose-model-1650496579186.xml" value="0.5" />
+        <entry key="../../../../layout/compose-model-1650497346963.xml" value="0.5" />
+        <entry key="../../../../layout/compose-model-1650499448929.xml" value="0.25" />
+        <entry key="../../../../layout/compose-model-1650500800740.xml" value="0.22" />
+        <entry key="../../../../layout/compose-model-1650501275294.xml" value="0.22" />
+        <entry key="../../../../layout/compose-model-1650502562560.xml" value="0.18" />
+        <entry key="../../../../layout/compose-model-1650503535642.xml" value="0.3108108108108108" />
+        <entry key="../../../../layout/compose-model-1650522248558.xml" value="0.33" />
+        <entry key="../../../../layout/compose-model-1650529518954.xml" value="0.3108108108108108" />
+        <entry key="app/src/main/res/drawable/browser.xml" value="0.196" />
         <entry key="../../../../layout/compose-model-1650492318279.xml" value="0.29907407407407405" />
         <entry key="../../../../layout/compose-model-1650492499792.xml" value="2.0" />
         <entry key="../../../../layout/compose-model-1650492501300.xml" value="0.29907407407407405" />
@@ -42,6 +55,7 @@
         <entry key="app/src/main/res/drawable/scan_icon.xml" value="0.196" />
         <entry key="app/src/main/res/drawable/scanner.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/share.xml" value="0.196" />
+        <entry key="app/src/main/res/drawable/star.xml" value="0.196" />
         <entry key="app/src/main/res/font/font.xml" value="0.31296296296296294" />
       </map>
     </option>
